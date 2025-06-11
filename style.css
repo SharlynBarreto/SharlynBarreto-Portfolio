@@ -13,6 +13,8 @@ html {
 body {
     color: #fff;
     background: radial-gradient(circle, rgba(125, 89, 56, 1) 1%, rgba(217, 176, 106, 1) 39%, rgba(173, 140, 62, 1) 60%, rgba(225, 187, 128, 1) 79%, rgba(53, 34, 8, 1) 96%);
+    margin: 0; 
+    padding: 0; 
 }
 
 #header {
@@ -40,9 +42,10 @@ body {
 }
 
 .navbar-nav .nav-item .nav-link {
-    color: #fff !important;
+    color: rgb(173, 232, 202) !important;
     text-decoration: none;
     font-size: 18px;
+    font-family: Copperplate, Copperplate Gothic Light, fantasy;
     position: relative;
     margin: 0 10px;
     transition: color 0.3s ease;
@@ -52,7 +55,7 @@ body {
     content: '';
     width: 0;
     height: 3px;
-    background: rgb(29, 103, 79);
+    background: #4d7a57;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -82,7 +85,6 @@ body {
     height: 100vh;
     object-fit: cover;
     object-position: center;
-    /* REMOVED: opacity: 0.6; */ /* This could interfere with Bootstrap's fade transition */
 }
 
 .carousel-caption {
@@ -97,7 +99,7 @@ body {
 }
 
 .carousel-caption h1 {
-    font-size: 4.5vw; /* Changed to vw for responsiveness as in previous output */
+    font-size: 4.5vw; 
     color: white;
     display: flex;
     justify-content: center;
@@ -120,7 +122,6 @@ body {
     font-size: 1.8vw;
     color: #f0f0f0;
     margin-top: 15px;
-    /* REMOVED: opacity: 0.6; */ /* If you want transparent text, adjust the color's alpha value like rgba(240, 240, 240, 0.6) */
 }
 
 @media (max-width: 767.98px) {
@@ -140,8 +141,10 @@ body {
     padding: 8% 15px;
     position: relative;
     z-index: 1;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
 }
-
  /* ------------------------------- EXPIRENCES SECTION ------------------------------- */
 
 #expirences {
@@ -157,12 +160,17 @@ body {
 }
 .col-4 {
     flex-basis: 35%;
+    max-width: 350px; 
+    margin: 0 auto;
 }
 .col-4 img {
     border-radius: 15px;
     width: 100%;
     height: auto;
     display: block;
+    max-height: 500px;
+    object-fit: contain;
+    object-position: center;
 }
 .col-8 {
     flex-basis: 60%;
@@ -170,10 +178,18 @@ body {
 .sub-title {
     font-size: 50px;
     font-weight: 600;
+    font-family: Copperplate, Papyrus, fantasy, "Lucida Console", "Courier New", monospace;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 15px;
+}
+.col-8 p{
+    color: white;
+}
+.para p{
+    font-family: Copperplate, Copperplate Gothic Light, fantasy;
+    color: #4d7a57;
 }
 
 .tab-titles {
@@ -186,7 +202,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     position: relative;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .tab-links::after {
     content:'';
@@ -204,7 +220,7 @@ body {
 .tab-contents ul li {
     list-style: disc;
     margin: 10px 0;
-    color: #fefcfc;
+    color: #f7f5f5;
 }
 .tab-contents {
     display: none;
@@ -216,11 +232,13 @@ body {
     border-radius: 15px;
     color: #4d7a57;
 }
-.sub-title-role {
+.sub-title-role span{
     font-size: 20px;
     font-weight: 400;
+    font-family: Copperplate, Copperplate Gothic Light, fantasy;
     color: #4d7a57;
 }
+/*Copperplate, Copperplate Gothic Light, fantasy*/
  /* ------------------------------- LEADERSHIP SECTION ------------------------------- */
 #leadership {
     padding: 50px 0;
@@ -238,22 +256,35 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     color: rgb(248, 246, 246);
-    font-family: 'Poppins', sans-serif;
+    font-family: Copperplate, Papyrus, fantasy, "Lucida Console", "Courier New", monospace;
+
 }
 .clubs-list {
     display: grid;
-    grid-gap: 10px;
-    margin-top: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "club1 club3"
+        "club2 club2";
+    grid-gap: 40px;
+    margin-top: 50px;
     padding: 0 20px;
+}
+#club-colorstack{
+    grid-area: club1;
+}
+#club-ascend{
+    grid-area: club2;
+}
+#club-alpfa{
+    grid-area: club3;
 }
 .clubs {
     border-radius: 10px;
     position: relative;
     overflow: hidden; 
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    height: 480px; 
+    padding: 10px;
+    /*box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+    height: 380px; /*40vh*/
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Start content from the top */
@@ -261,16 +292,18 @@ body {
 
 .clubs img {
     width: 100%;
-    max-height: 250px;
-    object-fit: contain;
-    object-position: center top;
-    border-radius: 10px;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0; /*10px*/ 
     display: block;
     transition: transform 0.5s;
     margin-bottom: 15px; 
-    flex-shrink: 0;
+    flex-shrink: 0; 
 }
-
+#club-colorstack img, #club-alpfa img{
+    max-height: 600px;
+}
 
 .layer {
     width: 100%;
@@ -278,15 +311,15 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-    background: linear-gradient(rgba(248, 244, 244, 0.8), #5d9373);
+    background: linear-gradient(#373402cc, #1f4833);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: flex-start; 
     align-items: center; 
     padding: 20px; 
     text-align: center;
-    color: black;
+    color: rgb(0, 0, 0);
     opacity: 0;
     transition: opacity 0.5s ease-in-out; 
     box-sizing: border-box; 
@@ -299,13 +332,17 @@ body {
 
 .layer h4, .layer h5 {
     font-size: clamp(16px, 2.5vw, 24px); 
+    font-family:Copperplate, Papyrus, fantasy, "Lucida Console", "Courier New", monospace;
     font-weight: 600; 
+    color: white;
     margin-bottom: 8px; 
     line-height: 1.2;
 }
 .layer h5 {
     font-size: clamp(12px, 2vw, 18px);
+    font-family:Copperplate, Papyrus, fantasy, "Lucida Console", "Courier New", monospace;
     font-weight: 400;
+    color: white;
     margin-bottom: 10px;
 }
 
@@ -324,8 +361,9 @@ body {
 .layer ul li {
     font-size: clamp(12px, 1.8vw, 16px); 
     margin-bottom: 4px; 
+    color:white;
+    font-family:Bodoni MT, Didot, Didot LT STD, Hoefler Text, Garamond, Times New Roman, serif;
     line-height: 1.3; 
-    color: black;
 }
 
 .clubs:hover img {
@@ -357,8 +395,9 @@ body {
 #skills h1 {
     display: flex;
     justify-content: center;
-    font-family: fantasy;
-    color: rgb(235, 233, 233);
+    font-weight: 600;
+    font-family:Copperplate, Papyrus, fantasy, "Lucida Console", "Courier New", monospace;
+    color: rgb(255, 255, 255);
     margin-bottom: 40px;
 }
 #skills .row {
@@ -413,6 +452,159 @@ body {
     color: white;
     margin-top: 0;
 }
+
+
+/* ------------------------------- PROJECTS SECTION ------------------------------- */
+#projects {
+    padding: 80px 0;
+    background: linear-gradient(#E9D29B, #7D601D); 
+    color: #fffefe; /* Default text color */
+}
+
+#projects .sub-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 50px;
+    font-weight: 600;
+    color: #fefffe; /* Match green accent */
+}
+
+.projects-list {
+    display: grid;
+    /* This creates a responsive grid: 
+       - auto-fit: creates as many columns as can fit.
+       - minmax(300px, 1fr): Each column will be at least 300px wide, and then
+         they will share the remaining space equally (1fr). */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px; /* Space between project cards */
+    margin-top: 30px;
+    padding: 0 20px; /* Optional: padding for the grid within the container */
+}
+
+.project-item {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    height: 350px; /* Fixed height for consistent card sizes - adjust as needed */
+    background-color: #fff; /* White background for the card */
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%; /* Make image fill the whole card */
+    object-fit: cover; /* Covers the area, cropping if aspect ratios don't match */
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.project-layer {
+    width: 100%;
+    height: 100%; /* Occupies full height of the item initially */
+    background: linear-gradient(rgba(0,0,0,0.7), #5d9373); /* Darker overlay with your green accent */
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* Use flexbox for content alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* White text for readability on dark overlay */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s; /* Smooth transition for overlay */
+}
+
+.project-layer h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.project-layer p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    color: #eee; /* Slightly lighter text for description */
+}
+
+.project-layer .tech-stack {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.project-layer .tech-stack span {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 5px;
+    font-weight: 500;
+}
+
+.project-layer .project-links {
+    margin-top: auto; /* Pushes links to the bottom if content is short */
+    display: flex;
+    gap: 15px; /* Space between links */
+}
+
+.project-layer .project-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: flex; /* For icon and text alignment */
+    align-items: center;
+    gap: 5px;
+}
+
+.project-layer .project-links a:hover {
+    background-color: #5d9373; /* Match accent color on hover */
+}
+
+.project-layer .project-links a i {
+    font-size: 18px;
+}
+
+/* Hover Effects */
+.project-item:hover img {
+    transform: scale(1.1); /* Image zooms slightly */
+}
+
+.project-item:hover .project-layer {
+    opacity: 1; /* Overlay becomes visible */
+}
+
+a.btn {
+    display: block;
+    margin: 50px auto 0;
+    width: fit-content;
+    background: #297045;
+    color: rgb(247, 244, 244);
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.btn span{
+    color: #b6c8b4;
+    font-family:Copperplate, Papyrus, fantasy, "Lucida Console", "Courier New", monospace;
+}
+
+a.btn:hover {
+    background-color: #145a2d;
+}
  /* ------------------------------- CONTACT SECTION ------------------------------- */
 
 #contact {
@@ -421,7 +613,7 @@ body {
 }
 #contact .container {
     padding: 50px 15px;
-    background-color: rgb(228, 207, 130);
+    background-color: linear-gradient(#E9D29B, #7D601D);
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
